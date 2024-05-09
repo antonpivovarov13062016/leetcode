@@ -1,0 +1,41 @@
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        roman_dict = {
+            "I":1,
+            "V":5,
+            "X":10,
+            "L":50,
+            "C":100,
+            "D":500,
+            "M":1000,
+            "IV":4,
+            "IX":9,
+            "XL":40,
+            "XC":90,
+            "CD":400,
+            "CM":900
+        }  
+        i = 0
+        sum = 0        
+        while i < len(s):
+            z = 0
+            z1 = 0
+            if i + 1 < len(s):
+                z=roman_dict.get(s[i]+s[i+1], 0)
+                print("z "+str(z))
+            if z != 0: 
+                sum = sum + z
+                i = i + 1
+            else:
+                z1 = roman_dict.get(s[i], 0)
+                print("z1 " +str(z1))
+                if z1 != 0:
+                    sum = sum + z1
+            i = i + 1
+        
+        return sum
+            

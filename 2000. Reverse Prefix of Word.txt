@@ -1,0 +1,19 @@
+class Solution(object):
+    def reversePrefix(self, word, ch):
+        """
+        :type word: str
+        :type ch: str
+        :rtype: str
+        """
+        if ch == "":
+            return
+        if word.find(ch) == - 1:
+            return word
+        strReverse = ""
+        i = 0        
+        for k in word:
+            strReverse = k + strReverse
+            i = i + 1
+            if k == ch: 
+                break
+        return strReverse + word[i:]

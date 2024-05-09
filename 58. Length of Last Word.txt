@@ -1,0 +1,20 @@
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        le = len(s) * -1
+
+        i = -1
+        l = 0
+        while (i >= le):
+            if s[i] == " " and l == 0:
+                i = i - 1
+                continue
+            elif s[i] == " " and l > 0:
+                break
+            if s[i] != " ":
+                l = l + 1
+            i = i - 1
+        return l

@@ -1,0 +1,100 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeTwoLists(self, list1, list2):
+        """
+        :type list1: Optional[ListNode]
+        :type list2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        if not list1 and not list2:
+            return list1
+        if not list1:
+            return list2
+        if not list2:
+            return list1
+        
+        listBuff = ListNode()
+        if list1.val > list2.val:                
+                listBuff = list2
+                list2 = list1
+                list1 = listBuff          
+        listbegin = list1
+
+        listBuff1 = ListNode()
+        while list1:                
+                print("lbegin b " + str(listbegin))                              
+                print("l1 b " + str(list1))
+                print("l2 b " + str(list2))
+                print("listBuff1 b " + str(listBuff1))  
+                while list1:
+                    listBuff1 = list1
+                    list1 = list1.next
+                    if not list1:                        
+                        break
+                    if listBuff1.val != list1.val:
+                        break
+                if not list1:
+                        break
+                print(str(list1.val) +'>' + str(list2.val))
+                if list1.val > list2.val:
+                     listBuff1.next = list2                     
+                     listBuff = list2
+                     list2 = list1
+                     list1 = listBuff        
+                    
+        print("lbegin e " + str(listbegin))                              
+        print("l1 e " + str(list1))
+        print("l2 e " + str(list2))    
+        print("listBuff1 e " + str(listBuff1))          
+        listBuff1.next = list2
+        return listbegin
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def mergeTwoLists(self, list1, list2):
+        """
+        :type list1: Optional[ListNode]
+        :type list2: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        if not list1 and not list2:
+            return list1
+        if not list1:
+            return list2
+        if not list2:
+            return list1
+        
+        listBuff = ListNode()
+        if list1.val > list2.val:                
+                listBuff = list2
+                list2 = list1
+                list1 = listBuff          
+        listbegin = list1
+
+        listBuff1 = ListNode()
+        while list1:                  
+                while list1:
+                    listBuff1 = list1
+                    list1 = list1.next
+                    if not list1:                        
+                        break
+                    if listBuff1.val != list1.val:
+                        break
+                if not list1:
+                        break
+                if list1.val > list2.val:
+                     listBuff1.next = list2                     
+                     listBuff = list2
+                     list2 = list1
+                     list1 = listBuff            
+        listBuff1.next = list2
+        return listbegin

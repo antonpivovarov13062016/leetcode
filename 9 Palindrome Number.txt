@@ -1,0 +1,35 @@
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if x < 0:
+            return 0
+        elif (x >=0) and (x<=9):
+            return 1
+        i = 1
+        k = 0
+        a = []
+        while x != 0:    
+            i = i * 10
+            a.append((x % i)/(i/10))
+            x = x - (x % i)
+        print(a)
+        if (len(a) % 2 == 0):
+            i = 0
+            j = len(a) - 1
+            while i < j:
+                if a[i] != a[j]:
+                    return 0
+                i = i + 1
+                j = j - 1
+        else:
+            i = 0
+            j = len(a) - 1
+            while i != j:
+                if (a[i] != a[j]):
+                    return 0
+                i = i + 1
+                j = j - 1
+        return 1
